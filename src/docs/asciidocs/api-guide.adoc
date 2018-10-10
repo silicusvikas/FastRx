@@ -1,0 +1,35 @@
+= FastRx API Guide
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+
+
+== Create Pharmacy Payment Profile
+
+===  POST request to create pharmacy request
+
+==== Request fields
+
+include::{snippets}/create-payment-profile/request-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/create-payment-profile/http-request.adoc[]
+
+
+==== Response fields
+
+include::{snippets}/create-payment-profile/response-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/create-payment-profile/http-response.adoc[]
+
+==== CURL request
+
+include::{snippets}/create-payment-profile/curl-request.adoc[]
+
