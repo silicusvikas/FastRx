@@ -24,10 +24,10 @@ pipeline {
 -Dsonar.projectKey=$PROJECT_KEY \\
 -Dsonar.host.url=$SONAR_HOST_URL \\
 -Dsonar.sourceEncoding=$PROJECT_SOURCE_ENCODING \\
--Dsonar.sources=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src/main/java/com/parkwoodrx/fastrx \\
+-Dsonar.sources=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src/main/java/ \\
 -Dsonar.language=$PROJECT_LANGUAGE \\
 -Dsonar.projectVersion=$PROJECT_VERSION \\
--Dsonar.projectBaseDir=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src/main/java/com/parkwoodrx/fastrx \\
+-Dsonar.projectBaseDir=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src/main/java/ \\
 -Dsonar.java.binaries=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/classes \\
 -Dsonar.tests=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src/test/java/com/parkwoodrx/fastrx/webservice/test \\
 -Dsonar.jacoco.reportPaths=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/jacoco.exec \\
