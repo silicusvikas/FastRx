@@ -1,6 +1,6 @@
 package com.parkwoodrx.fastrx.webservice.test;
 
-/*import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
@@ -22,10 +22,10 @@ import com.parkwoodrx.fastrx.webservice.UserController;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest(classes = FastrxApplication.class)
-@WebAppConfiguration*/
+@WebAppConfiguration
 public class UserControllerTest {
 
-	/*@InjectMocks
+	@InjectMocks
 	private UserController controllerUT = new UserController();
 
 	@Mock
@@ -61,6 +61,6 @@ public class UserControllerTest {
 		when(service.getUserByIdAndPassword(1,"Password")).thenReturn(user);
 		assertEquals(user, service.getUserByIdAndPassword(1,"Password"));
 		assertNotEquals(user2, service.getUserByIdAndPassword(1,"Password"));
-	}*/
+	}
 
 }
