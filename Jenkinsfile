@@ -29,7 +29,7 @@ pipeline {
 -Dsonar.projectVersion=$PROJECT_VERSION \\
 -Dsonar.projectBaseDir=src/main/java/com/parkwoodrx/fastrx \\
 -Dsonar.java.binaries=target/classes \\
--Dsonar.tests=src/test/java/com/parkwoodrx/fastrx/webservice/test \\
+-Dsonar.tests=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src/test/java/com/parkwoodrx/fastrx/webservice/test \\
 -Dsonar.jacoco.reportPaths=target/jacoco.exec \\
 -Dsonar.java.coveragePlugin=jacoco \\
 -Dsonar.junit.reportPaths=target/surefire-reports \\
