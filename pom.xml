@@ -178,6 +178,30 @@
 
 				</executions>
 			</plugin>
+			<!-- Adding Jacoco Plugin for SonarQube Analysis -->
+			<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.7.2.201409121644</version>
+			<configuration>
+				<append>true</append>
+			</configuration>
+			<executions>
+			<execution>
+				<goals>
+					<goal>prepare-agent</goal>
+				</goals>
+			</execution>
+			<execution>
+				<id>post-unit-test</id>
+				<phase>test</phase>
+					<goals>
+						<goal>report</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+			
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
 				<executions> <execution> <id>default-copy-resources</id> <phase>process-resources</phase> 
 				<goals> <goal>copy-resources</goal> </goals> <configuration> <overwrite>true</overwrite> 
