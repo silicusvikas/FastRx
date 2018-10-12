@@ -1,6 +1,6 @@
 package com.parkwoodrx.fastrx.webservice.test;
 
-/*import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
@@ -25,10 +25,10 @@ import com.parkwoodrx.fastrx.webservice.PharmacyCorporationController;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest(classes = FastrxApplication.class)
-@WebAppConfiguration*/
+@WebAppConfiguration
 public class PharmacyControllerTest {
 
-	/*@InjectMocks
+	@InjectMocks
 	private PharmacyCorporationController controllerUT = new PharmacyCorporationController();
 
 	@Mock
@@ -73,6 +73,6 @@ public class PharmacyControllerTest {
 	public void getpaymentTypeListTest() {
 		when(ps.getPaymentTypeList()).thenReturn(Arrays.asList(type1, type1, type1));
 		assertEquals(3, ps.getPaymentTypeList().size());
-	}*/
+	}
 
 }
