@@ -20,11 +20,23 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+  		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+ 		<sonar.language>java</sonar.language>
+	</properties>
+
+	<!-- <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
 		<java.version>1.8</java.version>
 		<maven.test.skip>true</maven.test.skip>
-	</properties>
+		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+  		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+ 		<sonar.language>java</sonar.language>
+	</properties> -->
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
@@ -155,8 +167,32 @@
 
 
 	<build>
+		<resources>
+        <resource>
+            <directory>resources</directory>
+        </resource>
+    	</resources> 
+    	<!-- <sourceDirectory>src</sourceDirectory> -->
 		<plugins>
-			<plugin>
+			<!--  -->
+			<!-- <plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<finalName>fastrx</finalName>
+				</configuration>
+			</plugin> -->
+			<!--  -->
+			
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
@@ -164,12 +200,21 @@
 						<include>**/*Test.java</include>
 					</includes>
 				</configuration>
+			</plugin> -->
+			<!--  -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
 			</plugin>
+			<!--  -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
-
 					<execution>
 						<goals>
 							<goal>repackage</goal>
@@ -180,13 +225,13 @@
 			</plugin>
 			<!-- Adding Jacoco Plugin for SonarQube Analysis -->
 			<plugin>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.7.2.201409121644</version>
-			<configuration>
-				<append>true</append>
-			</configuration>
-			<executions>
+		<groupId>org.jacoco</groupId>
+		<artifactId>jacoco-maven-plugin</artifactId>
+		<version>0.7.2.201409121644</version>
+		<configuration>
+			<append>true</append>
+		</configuration>
+		<executions>
 			<execution>
 				<goals>
 					<goal>prepare-agent</goal>
@@ -195,12 +240,12 @@
 			<execution>
 				<id>post-unit-test</id>
 				<phase>test</phase>
-					<goals>
-						<goal>report</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
+				<goals>
+					<goal>report</goal>
+				</goals>
+			</execution>
+		</executions>
+	</plugin>
 			
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
 				<executions> <execution> <id>default-copy-resources</id> <phase>process-resources</phase> 
