@@ -31,10 +31,10 @@ pipeline {
 -Dsonar.projectBaseDir=src/main/java/com/parkwoodrx/fastrx \\
 -Dsonar.java.binaries=target/classes \\
 -Dsonar.tests=src/test/java/com/parkwoodrx/fastrx\\
--Dsonar.jacoco.reportPaths=target/jacoco.exec 
--Dsonar.java.coveragePlugin=jacoco 
--Dsonar.junit.reportPaths=target/surefire-reports
--Dsonar.surefire.reportsPath=target/surefire-reports
+-Dsonar.jacoco.reportPaths=target/jacoco.exec \\
+-Dsonar.java.coveragePlugin=jacoco \\
+-Dsonar.junit.reportPaths=target/surefire-reports \\
+-Dsonar.surefire.reportsPath=target/surefire-reports \\
 -Dsonar.verbose=false   
    }
     }		
