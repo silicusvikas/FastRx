@@ -18,8 +18,7 @@ pipeline {
         PROJECT_SOURCE_ENCODING = 'UTF-8'
         PROJECT_LANGUAGE = 'java'
       }
-      steps {
-        sh 'chmod -R 777 workspace/build'             
+      steps {          
         sh '''PROJECT_VERSION=1.0.$(date +%y)$(date +%j).$BUILD_NUMBER
 /opt/sonar/bin/sonar-runner -Dsonar.projectName=$PROJECT_NAME \\
 -Dsonar.projectKey=$PROJECT_KEY \\
