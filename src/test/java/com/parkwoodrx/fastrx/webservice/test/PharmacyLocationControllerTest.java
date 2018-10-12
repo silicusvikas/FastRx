@@ -1,6 +1,6 @@
 package com.parkwoodrx.fastrx.webservice.test;
 
-import static org.junit.Assert.assertEquals;
+/*import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
@@ -23,10 +23,10 @@ import com.parkwoodrx.fastrx.webservice.PharmacyLocationController;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest(classes = FastrxApplication.class)
-@WebAppConfiguration
+@WebAppConfiguration*/
 public class PharmacyLocationControllerTest {
 
-	@InjectMocks
+	/*@InjectMocks
 	private PharmacyLocationController controllerUT = new PharmacyLocationController();
 
 	@Mock
@@ -75,6 +75,6 @@ public class PharmacyLocationControllerTest {
 		when(locationService.getPharmacyLocationByLocationPin(locationPin)).thenReturn(location1);
 		assertEquals(location1, locationService.getPharmacyLocationByLocationPin(locationPin));
 		assertNotEquals(location2, locationService.getPharmacyLocationByLocationPin(locationPin));
-	}
+	}*/
 
 }
