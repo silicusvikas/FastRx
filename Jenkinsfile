@@ -35,7 +35,7 @@ pipeline {
 -Dsonar.java.coveragePlugin=jacoco \\
 -Dsonar.junit.reportPaths=target/surefire-reports \\
 -Dsonar.surefire.reportsPath=target/surefire-reports \\
--Dsonar.verbose=false   
+-Dsonar.verbose=false '''   
    }
     }		
      	    
