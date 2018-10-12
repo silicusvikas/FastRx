@@ -30,6 +30,10 @@ pipeline {
 -Dsonar.projectBaseDir=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src \\
 -Dsonar.java.binaries=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/classes \\
 -Dsonar.tests=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src/test/java/com/parkwoodrx/fastrx/webservice/test \\
+-Dsonar.jacoco.reportPaths=target/jacoco.exec \\
+-Dsonar.java.coveragePlugin=jacoco \\
+-Dsonar.junit.reportPaths=target/surefire-reports \\
+-Dsonar.surefire.reportsPath=target/surefire-reports \\
 -Dsonar.verbose=false '''   
    }
     }		
