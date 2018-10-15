@@ -178,7 +178,13 @@
     <artifactId>api-client</artifactId>
     <version>0.11</version>
 </dependency>
-
+<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/sonar-maven-plugin -->
+			<dependency>
+    				<groupId>org.codehaus.mojo</groupId>
+    				<artifactId>sonar-maven-plugin</artifactId>
+    				<version>3.5.0.1254</version>
+    				<type>pom</type>
+			</dependency>
 		
 	</dependencies>
 
@@ -230,11 +236,6 @@
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
-			</plugin>
-			<plugin>
-    				<groupId>org.codehaus.mojo</groupId>
-    				<artifactId>sonar-maven-plugin</artifactId>
-    				<version>3.0.2</version>
 			</plugin>
 			<!--  
 			<plugin>
