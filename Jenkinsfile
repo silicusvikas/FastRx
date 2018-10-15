@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('Development') {
       steps {
-        sh 'chmod -R 777 FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA'
         sh 'echo "Starting FastRx Build ...."'
         sh 'mvn --version'
         sh 'mvn clean install'
