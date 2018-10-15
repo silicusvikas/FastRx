@@ -25,6 +25,19 @@
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
   		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
  		<sonar.language>java</sonar.language>
+ 		
+ 		<coverage.reports.dir>
+		  ${project.basedir}/../target/coverage-reports
+		</coverage.reports.dir>
+		<sonar.jacoco.reportPath>
+		  ${coverage.reports.dir}/jacoco-unit.exec
+		</sonar.jacoco.reportPath>
+		<sonar.jacoco.itReportPath>
+		  ${coverage.reports.dir}/jacoco-it.exec
+		</sonar.jacoco.itReportPath>
+		<sonar.jacoco.jar>
+		  ${project.basedir}/../target/lib/jacocoagent.jar
+		</sonar.jacoco.jar>
 	</properties>
 
 	<!-- <properties>
@@ -207,8 +220,12 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.19.1</version>
 				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
-				</configuration>
+			    <b><argLine>          
+			       -javaagent:${sonar.jacoco.jar}=destfile=${sonar.jacoco.reportPath}       
+			    </argLine></b>
+			    <test>**/*.java</test>
+			    <testFailureIgnore>true</testFailureIgnore>
+			    </configuration>
 			</plugin>
 			<!--  -->
 			<plugin>
@@ -227,8 +244,7 @@
 			<plugin>
 		<groupId>org.jacoco</groupId>
 		<artifactId>jacoco-maven-plugin</artifactId>
-		<version>0.8.2</version>
-		<!-- <version>0.7.2.201409121644</version> -->
+		<version>0.7.2.201409121644</version>
 		<configuration>
 			<append>true</append>
 		</configuration>
