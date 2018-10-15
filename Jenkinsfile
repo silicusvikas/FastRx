@@ -6,12 +6,14 @@ pipeline {
         sh 'echo "Starting FastRx Build ...."'
         sh 'mvn --version'
         sh 'mvn clean install'
+        sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install'
       }
       post {
                 success {
                     junit 'target/surefire-reports/**/*.xml' 
                 }
             }
+     
     }
     stage('SonarQube Analysis') {
       environment {
