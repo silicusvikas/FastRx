@@ -7,6 +7,11 @@ pipeline {
         sh 'mvn --version'
         sh 'mvn clean install'
       }
+      post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
+            }
     }
     stage('SonarQube Analysis') {
       environment {
