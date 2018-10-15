@@ -1,14 +1,13 @@
 pipeline {
-  agent any 
+  agent any
   stages {
-    
     stage('Development') {
-            steps {
-					sh 'echo "Starting FastRx Build ...."'
-					sh 'mvn --version'
-					sh 'mvn clean install'
-				}
-			}
+      steps {
+        sh 'echo "Starting FastRx Build ...."'
+        sh 'mvn --version'
+        sh 'mvn clean install'
+      }
+    }
     stage('SonarQube Analysis') {
       environment {
         PROJECT_NAME = 'Silicus-FastRx-Java-Demo'
@@ -18,7 +17,8 @@ pipeline {
         PROJECT_SOURCE_ENCODING = 'UTF-8'
         PROJECT_LANGUAGE = 'java'
       }
-      steps {          
+      steps {
+        sh 'chmod -R 777 FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA'
         sh '''PROJECT_VERSION=1.0.$(date +%y)$(date +%j).$BUILD_NUMBER
 /opt/sonar/bin/sonar-runner -Dsonar.projectName=$PROJECT_NAME \\
 -Dsonar.projectKey=$PROJECT_KEY \\
@@ -35,10 +35,9 @@ pipeline {
 -Dsonar.jacoco.reportPaths=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/jacoco.exec \\
 -Dsonar.binaries=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/classes \\
 -Dsonar.java.coveragePlugin=jacoco \\
--Dsonar.verbose=false '''   
-   }
-    }		
-     	    
+-Dsonar.verbose=false '''
+      }
+    }
     stage('Delete Workspace') {
       parallel {
         stage('Delete Workspace') {
@@ -49,12 +48,16 @@ pipeline {
       }
     }
   }
-    post {
+  post {
     success {
       mail(to: 'vikas.kishore@silicus.com', subject: "Success Pipeline: ${currentBuild.fullDisplayName}", body: "Congratulations pipeline build successfully ${env.BUILD_URL}")
+
     }
+
     failure {
       mail(to: 'vikas.kishore@silicus.com', subject: "Failed Pipeline: ${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}")
+
     }
+
   }
 }
