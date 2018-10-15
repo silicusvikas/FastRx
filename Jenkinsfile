@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh 'echo "Starting FastRx Build ...."'
         sh 'mvn --version'
-        sh 'mvn clean install sonar:sonar'
+        sh 'mvn clean install'
        }
            
     }
