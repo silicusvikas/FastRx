@@ -29,11 +29,11 @@ pipeline {
 -Dsonar.projectBaseDir=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src \\
 -Dsonar.java.binaries=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/classes \\
 -Dsonar.tests=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/src/test \\
--Dsonar.junit.reportsPath=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/surefire-reports \\
--Dsonar.surefire.reportsPath=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/surefire-reports \\
--Dsonar.jacoco.reportPaths=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/jacoco.exec \\
+#-Dsonar.junit.reportsPath=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/surefire-reports \\
+#-Dsonar.surefire.reportsPath=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/surefire-reports \\
+#-Dsonar.jacoco.reportPaths=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/jacoco.exec \\
 -Dsonar.binaries=/var/lib/jenkins/workspace/FastRx_development-RSKHFJXL7NFTNYVMAT64PAOGI7A6K2EH7JQQVFAOTWKS766OWDJA/target/classes \\
--Dsonar.java.coveragePlugin=jacoco \\
+#-Dsonar.java.coveragePlugin=jacoco \\
 -Dsonar.verbose=false '''
       }
     }
