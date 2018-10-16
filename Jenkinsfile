@@ -10,6 +10,10 @@ pipeline {
            
     }
     stage('SonarQube Analysis') {
+      def scannerHome = tool 'sonarScanner';
+      withSonarQubeEnv('SonarQube 6.2') {
+      bat "${scannerHome}/bin/sonar-runner.bat"
+      }
       environment {
         PROJECT_NAME = 'Silicus-FastRx-Java-Demo'
         PROJECT_KEY = 'silicus-java-demo'
