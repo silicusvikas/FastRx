@@ -24,42 +24,17 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
   		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
- 		<sonar.language>java</sonar.language> 
+ 		<sonar.language>java</sonar.language>
 	</properties>
 
-	<!-- <properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
-		<java.version>1.8</java.version>
-		<maven.test.skip>true</maven.test.skip>
-		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-  		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
- 		<sonar.language>java</sonar.language>
-	</properties> -->
-
+	
 	<dependencies>
-	    <dependency>
-                	<groupId>junit</groupId>
-                	<artifactId>junit</artifactId>
-                	<version>4.12</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>2.7.12</version>
-            </dependency>
-		<!-- Test -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -178,12 +153,7 @@
     <artifactId>api-client</artifactId>
     <version>0.11</version>
 </dependency>
-</dependencies>
-
-	<!-- <build> <plugins> <plugin> <groupId>org.springframework.boot</groupId> 
-		<artifactId>spring-boot-maven-plugin</artifactId> </plugin> </plugins> </build> -->
-
-
+	</dependencies>
 
 	<build>
 		<resources>
@@ -193,34 +163,6 @@
     	</resources> 
     	<!-- <sourceDirectory>src</sourceDirectory> -->
 		<plugins>
-			<!--  -->
-			<!-- <plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.6</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<finalName>fastrx</finalName>
-				</configuration>
-			</plugin> -->
-			<!--  -->
-			
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<includes>
-						<include>**/*Test.java</include>
-					</includes>
-				</configuration>
-			</plugin> -->
-			<!--  -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -229,7 +171,7 @@
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
 			</plugin>
-			<!--  
+			<!--  -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -239,15 +181,13 @@
 							<goal>repackage</goal>
 						</goals>
 					</execution>
-
 				</executions>
-			</plugin>-->
-			
-			<plugin>
+			</plugin>
+			<!-- Adding Jacoco Plugin for SonarQube Analysis -->
+		<!-- <plugin>
 		<groupId>org.jacoco</groupId>
 		<artifactId>jacoco-maven-plugin</artifactId>
-		<version>0.8.2</version>
-		
+		<version>0.7.2.201409121644</version>
 		<configuration>
 			<append>true</append>
 		</configuration>
@@ -265,14 +205,48 @@
 				</goals>
 			</execution>
 		</executions>
-	</plugin>
-			
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
-				<executions> <execution> <id>default-copy-resources</id> <phase>process-resources</phase> 
-				<goals> <goal>copy-resources</goal> </goals> <configuration> <overwrite>true</overwrite> 
-				<outputDirectory>${project.build.directory}/${project.artifactId}-${version}</outputDirectory> 
-				<resources> <resource> <directory>../fastrxweb/fastrxweb/</directory> </resource> 
-				</resources> </configuration> </execution> </executions> </plugin> -->
+	</plugin> -->
+	
+	<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+
+							<dataFile>target/jacoco.exec</dataFile>
+							<!-- Sets the output directory for the code coverage report. -->
+							<outputDirectory>target/jacoco-ut</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<systemPropertyVariables>
+						<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+	
 		</plugins>
 		<finalName>fastrx</finalName>
 	</build>
