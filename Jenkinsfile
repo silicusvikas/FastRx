@@ -10,16 +10,7 @@ pipeline {
            
     }
     stage('SonarQube Analysis') {
-      steps {
-        script {
-          // requires SonarQube Scanner 2.8+
-          scannerHome = tool 'SonarQube Scanner 2.8'
-        }
-        withSonarQubeEnv('SonarQube Scanner') {
-          sh "${scannerHome}/bin/sonar-scanner"
-        }
-      }
-      environment {
+            environment {
         PROJECT_NAME = 'Silicus-FastRx-Java-Demo'
         PROJECT_KEY = 'silicus-java-demo'
         PROJECT_BRANCH = 'development'
